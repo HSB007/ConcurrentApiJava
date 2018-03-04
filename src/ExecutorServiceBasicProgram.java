@@ -30,7 +30,26 @@ class Task implements Runnable
 public class ExecutorServiceBasicProgram
 {
 	public static void main(String[] args) throws InterruptedException {
-		ExecutorService executor = Executors.newFixedThreadPool(3);  // Creates a Pool for 3 Threads.
+		
+		/**newFixedThreadPool(3) : Creates a Pool for 3 Threads which will execute the task parallely and achieve 
+		 * asynchronous behavior, if multiple Task assigned to ExecutorService then it will wait for one of the threads to 
+		 * finish and execute it.**/
+		
+		ExecutorService executor = Executors.newFixedThreadPool(3);  
+		
+		/** newCachedThreadPool() : It takes no parameter and whenever the new task assigned to executor first it will check
+		 * whether any thread is free in threadPool or not, if any thread is free task will be allocated to that thread else
+		 * create a new thread in threaPool and assigned the task to newly created thread. **/
+		
+		//ExecutorService executor = Executors.newCachedThreadPool();
+		
+		
+		/** newSingleThreadExecutor() : It also does not take any parameter, Only one thread will be assigned to
+		 * a task at a time, no matter how many tasks you assigned to executor, next task will be assigned to that thread only after
+		 * completion of first task**/
+		
+		//ExecutorService executor = Executors.newSingleThreadExecutor();
+		
 		
 		Task t1 = new Task(5); // Runnable Task1
 		Task t2 = new Task(5); // Runnable Task2
